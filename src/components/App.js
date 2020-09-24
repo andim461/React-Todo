@@ -1,14 +1,21 @@
 import React from 'react';
 import './App.css';
-import Head from './Head/Head.js'
+import Header from './Header/Header.js'
+import TodoItem from './TodoItem/TodoItem.js'
 
 
 export function App(props){
     return (
-        <div>
-            <Head text='Todo React'/> 
-            <body className='body'></body>   
-        </div>
+        <main >
+            <Header title='React Todo' /> 
+
+            <body className='body'>
+            <TodoItem text='Read about react' />
+            <TodoItem text='Do some work' />
+            <TodoItem text='Do nothing' />
+            
+            </body>   
+        </main>
     );  
 }
 
