@@ -6,20 +6,19 @@ import './TodoItem.css';
 
 
 export default function Todo(props){
-    const [isChecked, setChecked] = React.useState(false);
-    const handleChange = () => {
-        setChecked(!isChecked);
-        //TODO: зачеркнуть текст и сдвинуть ячейку в самый низ
-        // добавить к счетчику +1
+    const handleChange = (e) => {
+        props.onComplite(props.todo.id);
+        
     };
-    const handleDeleteClick = () => {
-        //удалить ячейку -1
+    const handleDelete = (e) => {
+        props.onDelete(props.todo.id);
     };
+    
     return (
-        <div className='todoItem'>
-            <Checkbox checked={isChecked} onChange={handleChange} />
-            <span>{props.text}</span>
-            <IconButton onClick={handleDeleteClick}>
+        <div className={props.todo.complited ? 'todoneItem' : 'todoItem'}>
+            <Checkbox checked={props.todo.complited} onChange={handleChange} />
+            <span>{props.todo.text}</span>
+            <IconButton onClick={handleDelete}>
                 <Delete color='secondary'/>
             </IconButton>
         </div>
